@@ -12,9 +12,9 @@ var twoSum = function (nums, target) {
 
         if (diffOfNums in arr) {
             return [arr[diffOfNums], i];
+
         }
+
         arr[nums[i]] = i;
-
-
     }
 }
