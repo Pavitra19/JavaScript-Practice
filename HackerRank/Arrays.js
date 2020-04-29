@@ -3,7 +3,7 @@ function getSecondLargest(nums) {
     // remove repeating numbers
     nums = [...new Set(nums)];
 
-    // sort from highest to low
+    // sort from lowest to highest
     const sortedArray = nums.sort(function (a, b) { return a - b });
 
     // get second highest value
