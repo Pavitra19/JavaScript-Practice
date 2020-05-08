@@ -10,11 +10,6 @@ var mySqrt = function (x) {
 };
 
 // method 2 
-
-/**
- * @param {number} x
- * @return {number}
- */
 var mySqrt2 = function (x) {
     // sqrt of x must be in [1, x/2 +1]
     var left = 1;
