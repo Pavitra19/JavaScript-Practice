@@ -3,6 +3,7 @@
  * @param {number} month
  * @param {number} year
  * @return {string}
+ * Given a date, return the corresponding day of the week for that date.
  */
 
 const findDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
