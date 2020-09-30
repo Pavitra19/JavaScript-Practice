@@ -2,6 +2,7 @@
  * @param {number} n
  * @return {boolean}
  * Given an integer, write a function to determine if it is a power of three.
+ * // Leetcode 326
  */
 
 // Method 1
@@ -17,6 +18,7 @@ var isPowerOfThree = function (n) {
 };
 
 // Method 2 
+// Runtime: 264 ms; Memory usage: 48.8 MB	
 var isPowerOfThree2 = function (n) {
     // n.toString(3) uses the concept of radix and makes n into a string with a base of 3
     // If n is a power of 3, n.toString(3) would be 1, 10, 100, etc
