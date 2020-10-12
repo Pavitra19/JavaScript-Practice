@@ -13,7 +13,7 @@ var countPrimes = function (n) {
     for (i = 2; i < n; i++) {
         if (array[i]) continue; // Skip numbers marked as true 
         else count++; // Count increases when number is false 
-        for (j = i + i; j <= n; j += i) {
+        for (j = i + i; j < n; j += i) {
             array[j] = true; // Multiples will be a composite number 
         }
     }
