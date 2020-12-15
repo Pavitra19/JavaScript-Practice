@@ -10,6 +10,14 @@
  * Leetcode 1678
  */
 
+// Method 1: Runtime: 80 ms (faster than 65.79%), Memory Usage: 38.6 MB (less than 35.44%)
+// To replace all instances of a value, /g is the global modifier
+// regex syntax: /regex/
+// \( matches the character ( literally (case insensitive), \) matches the character ) literally (case insensitive)
+var interpret = function (command) {
+    return command.replace(/\(al\)/g, "al").replace(/\(\)/g, "o");
+};
+
 // Method 2: Runtime: 80 ms (faster than 65.79%), Memory Usage: 38.4 MB (less than 71.19%)
 // split string at chars that must be replaced, then rejoin with the correct char
 var interpret = function (command) {
