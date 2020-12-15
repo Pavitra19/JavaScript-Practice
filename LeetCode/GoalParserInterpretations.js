@@ -11,6 +11,7 @@
  */
 
 // Method 2: Runtime: 80 ms (faster than 65.79%), Memory Usage: 38.4 MB (less than 71.19%)
+// split string at chars that must be replaced, then rejoin with the correct char
 var interpret = function (command) {
     return command.split("()").join("o").split("(al)").join("al");
 };
