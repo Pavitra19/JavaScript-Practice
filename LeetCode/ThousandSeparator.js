@@ -4,6 +4,13 @@
  * Given an integer n, add a dot (".") as the thousands separator and return it in string format.
  */
 
+// Runtime: 76 ms (faster than 73.57%), Memory Usage: 38.6 MB (less than 50.71%)
+var thousandSeparator = function (n) {
+  let str = [...n.toString()];
+  for (let i = str.length - 3; i > 0; i -= 3) str.splice(i, 0, "."); // add a separator after every 3 digits
+  return str.join(""); // join the digits
+};
+
 // Runtime: 76 ms (faster than 73.57%). Memory Usage: 38.5 MB (less than 69.29%)
 var thousandSeparator = function (n) {
   var str = n.toString(); // convert to string
