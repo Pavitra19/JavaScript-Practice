@@ -12,8 +12,17 @@ var maximum69Number = function (num) {
   return num.toString().replace("6", "9"); // convert to string, then replace first occurance of 6
 };
 
+// Runtime: 76 ms (faster than 83.78%), Memory Usage: 38.8 MB (less than 16.39%)
+var maximum69Number2 = function (num) {
+  let nums = [...num.toString()];
+  if (!nums.includes("6")) return nums.join(""); // if there is no 6, return the number
+  let firstIndex = nums.indexOf("6");
+  nums[firstIndex] = "9";
+  return nums.join("");
+};
+
 // Runtime: 80 ms (aster than 62.16%), Memory Usage: 38.7 MB (less than 44.26%)
-var maximum69Number = function (num) {
+var maximum69Number3 = function (num) {
   let nums = [...num.toString()];
   if (!nums.includes("6")) return nums.join("");
   var count = 0;
