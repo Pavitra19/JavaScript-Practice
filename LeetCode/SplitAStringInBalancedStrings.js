@@ -20,3 +20,13 @@ var balancedStringSplit = function (s) {
   }
   return answer;
 };
+
+var balancedStringSplit2 = function (s) {
+  let balance = 0;
+  let answer = 0;
+  for (let i = 0; i < s.length; i++) {
+    s[i] === "L" ? balance++ : balance--; // clearner with a ternary statement
+    if (balance === 0) answer++;
+  }
+  return answer;
+};
