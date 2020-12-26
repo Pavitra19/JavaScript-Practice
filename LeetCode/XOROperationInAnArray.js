@@ -17,8 +17,14 @@ var xorOperation = function (n, start) {
   return xor;
 };
 
-// Runtime: 80 ms (faster than 45.87%), Memory Usage: 38.8 MB (less than 14.26%)
+// Runtime: 80 ms (faster than 45.87%), Memory Usage: 38.2 MB (less than 92.06%)
+// Lodash _.times() executes a function n times, returning an array of the restults of each execution
 var xorOperation2 = function (n, start) {
+  return _.times(n, (i) => start + 2 * i).reduce((a, b) => a ^ b);
+};
+
+// Runtime: 80 ms (faster than 45.87%), Memory Usage: 38.8 MB (less than 14.26%)
+var xorOperation3 = function (n, start) {
   let nums = [];
   for (let i = 0; i < n; i++) {
     nums[i] = start + 2 * i;
