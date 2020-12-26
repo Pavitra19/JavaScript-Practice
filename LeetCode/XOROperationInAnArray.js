@@ -27,7 +27,7 @@ var xorOperation2 = function (n, start) {
 var xorOperation3 = function (n, start) {
   let nums = [];
   for (let i = 0; i < n; i++) {
-    nums[i] = start + 2 * i;
+    nums[i] = start + 2 * i; // fill array
   }
   return nums.reduce((a, b) => a ^ b); // reduce executes a function for each value of the array, returning a single value
 };
