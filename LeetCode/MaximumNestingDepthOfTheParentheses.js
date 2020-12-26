@@ -19,3 +19,17 @@ var maxDepth = function (s) {
   }
   return maxDepth;
 };
+
+// Runtime: 80 ms (faster than 73.12%), Memory Usage: 38.6 MB (less than 76.04%)
+var maxDepth2 = function (s) {
+  let bracksCount = 0; // count open brackets
+  let maxDepth = 0;
+  for (var i = 0; i < s.length; i++) {
+    if (s[i] === "(") {
+      bracksCount++;
+      maxDepth = Math.max(bracksCount, maxDepth);
+    }
+    if (s[i] === ")") bracksCount--;
+  }
+  return maxDepth;
+};
