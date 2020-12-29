@@ -26,3 +26,18 @@ var checkVowel = function (char) {
   let vowels = "aeiouAEIOU";
   return vowels.includes(char) ? true : false; // return true if char is a vowel
 };
+
+// Runtime: 72 ms (faster than 99.27%). Memory Usage: 42.4 MB (less than 6.57%)
+var halvesAreAlike = function (s) {
+  let spliceLen = s.length / 2;
+  let vowels = "aeiouAEIOU";
+  let rightWord = s.slice(0, spliceLen).split("");
+  let leftWord = s.slice(spliceLen).split("");
+  rightVowels = rightWord.filter((word) =>
+    word.split("").every((char) => vowels.includes(char))
+  );
+  leftVowels = leftWord.filter((word) =>
+    word.split("").every((char) => vowels.includes(char))
+  );
+  return rightVowels.length === leftVowels.length;
+};
