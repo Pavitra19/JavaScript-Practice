@@ -6,9 +6,21 @@
  * Return true if a and b are alike. Otherwise, return false.
  * Leetcode 1704
  */
+// Runtime: 76 ms (faster than 93.84%), Memory Usage: 39.1 MB (less than 70.14%)
+// [abc] finds any of the characters in the brackets
+// i performs case-insensitive matching, and g performs global matching
+var halvesAreAlike = function (s) {
+  let spliceLen = s.length / 2;
+  let rightWord = s.slice(0, spliceLen);
+  let leftWord = s.slice(spliceLen);
+  return (
+    rightWord.replace(/[aeiou]/gi, "").length ===
+    leftWord.replace(/[aeiou]/gi, "").length
+  );
+};
 
 // Runtime: 76 ms (faster than 94.89%). Memory Usage: 39.2 MB (less than 62.04%)
-var halvesAreAlike = function (s) {
+var halvesAreAlike2 = function (s) {
   let spliceLen = s.length / 2;
   let rightWord = s.slice(0, spliceLen); // first half of string
   let leftWord = s.slice(spliceLen); // second half of string
@@ -28,7 +40,7 @@ var checkVowel = function (char) {
 };
 
 // Runtime: 72 ms (faster than 99.27%). Memory Usage: 42.4 MB (less than 6.57%)
-var halvesAreAlike = function (s) {
+var halvesAreAlike3 = function (s) {
   let spliceLen = s.length / 2;
   let vowels = "aeiouAEIOU";
   let rightWord = s.slice(0, spliceLen).split("");
