@@ -26,3 +26,13 @@ var mergeTrees = function (t1, t2) {
   t1.right = mergeTrees(t1.right, t2.right);
   return t1;
 };
+
+// Runtime: 112 ms (faster than 79.45%), Memory Usage: 46.2 MB (less than 48.95%)
+var mergeTrees2 = function (t1, t2) {
+  if (!t2) return t1;
+  if (!t1) return t2;
+  var root = new TreeNode(t1.val + t2.val);
+  root.left = mergeTrees(t1.left, t2.left);
+  root.right = mergeTrees(t1.right, t2.right);
+  return root;
+};
