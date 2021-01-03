@@ -14,8 +14,26 @@
  * Leetcode 897
  */
 
-//Runtime: 72 ms (faster than 93.45%), Memory Usage: 39.3 MB (less than 18.08%)
+//Runtime: 68 ms (faster than 98.34%), Memory Usage: 39.w MB (less than 33.91%)
 var increasingBST = function (root) {
+  let newTree = new TreeNode();
+  let node = newTree;
+
+  function traverse(root) {
+    if (!root) return;
+    traverse(root.left);
+    node.right = root;
+    node = node.right;
+    node.left = null;
+    traverse(root.right);
+  }
+
+  traverse(root);
+  return newTree.right;
+};
+
+//Runtime: 72 ms (faster than 93.45%), Memory Usage: 39.3 MB (less than 18.08%)
+var increasingBST2 = function (root) {
   let sortedNodes = [];
   function traverse(node) {
     if (node === null) return null;
@@ -38,7 +56,7 @@ var increasingBST = function (root) {
 };
 
 //Runtime: 76 ms (faster than 80.85%), Memory Usage: 39.4 MB (less than 14.18%)
-var increasingBST = function (root) {
+var increasingBST3 = function (root) {
   let sortedNodes = [];
   function traverse(node) {
     if (node === null) return null;
