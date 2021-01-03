@@ -14,6 +14,29 @@
  * Leetcode 897
  */
 
+//Runtime: 72 ms (faster than 93.45%), Memory Usage: 39.3 MB (less than 18.08%)
+var increasingBST = function (root) {
+  let sortedNodes = [];
+  function traverse(node) {
+    if (node === null) return null;
+    traverse(node.left);
+    sortedNodes.push(node.val);
+    traverse(node.right);
+  }
+
+  function buildTree() {
+    let tempNode = new TreeNode();
+    let current = tempNode;
+    for (let i = 0; i < sortedNodes.length; i++) {
+      current.right = new TreeNode(sortedNodes[i]);
+      current = current.right;
+    }
+    return tempNode.right;
+  }
+  traverse(root);
+  return buildTree();
+};
+
 //Runtime: 76 ms (faster than 80.85%), Memory Usage: 39.4 MB (less than 14.18%)
 var increasingBST = function (root) {
   let sortedNodes = [];
@@ -24,12 +47,12 @@ var increasingBST = function (root) {
     traverse(node.right);
   }
   traverse(root);
-  sortedNodes.sort((a, b) => a - b);
+  sortedNodes.sort((a, b) => a - b); // sort the nodes in ascending order
   function buildTree() {
     let tempNode = new TreeNode();
     let current = tempNode;
     for (let i = 0; i < sortedNodes.length; i++) {
-      current.right = new TreeNode(sortedNodes[i]);
+      current.right = new TreeNode(sortedNodes[i]); // add node to tree based on order
       current = current.right;
     }
     return tempNode.right;
