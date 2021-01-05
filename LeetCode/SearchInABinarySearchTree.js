@@ -16,7 +16,8 @@
  * Leetcode 700
  */
 
-//Runtime: 88 ms (faster than 95.86%), Memory Usage: 45.1 MB (less than 30.34%)
+// Runtime: 88 ms (faster than 95.86%), Memory Usage: 45.1 MB (less than 30.34%)
+// Iterative
 var searchBST = function (root, val) {
   while (root) {
     if (root.val === val) break;
@@ -25,10 +26,21 @@ var searchBST = function (root, val) {
   return root;
 };
 
-//Runtime: 92 ms (faster than 87.93%), Memory Usage: 44.8 MB (less than 84.60%)
+// Runtime: 88 ms (faster than 95.86%), Memory Usage: 45.2 MB (less than 30.34%)
+// Recursion
 var searchBST2 = function (root, val) {
   if (!root) return null;
-  let node = TreeNode();
+  if (root.val === val) return root;
+  return root.val > val
+    ? searchBST(root.left, val)
+    : searchBST(root.right, val);
+};
+
+// Runtime: 92 ms (faster than 87.93%), Memory Usage: 44.8 MB (less than 84.60%)
+// Recursion
+var searchBST3 = function (root, val) {
+  if (!root) return null;
+  let node = TreeNode(); // creating new tree
 
   function findNode(root) {
     if (!root) return null;
