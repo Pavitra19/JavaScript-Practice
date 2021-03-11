@@ -14,8 +14,19 @@
  * Leetcode 1773
  */
 
-// Runtime: 88 ms (faster than 100.00% of JavaScript submissions), Memory Usage: 42.7 MB (less than 100.00% of JavaScript submissions)
+// Runtime: 80 ms (faster than 100.00% of JavaScript submissions), Memory Usage: 42.6 MB (less than 100.00% of JavaScript submissions)
 var countMatches = function (items, ruleKey, ruleValue) {
+  const index = {
+    type: 0,
+    color: 1,
+    name: 2,
+  };
+
+  return items.filter((item) => item[index[ruleKey]] === ruleValue).length;
+};
+
+// Runtime: 88 ms (faster than 100.00% of JavaScript submissions), Memory Usage: 42.7 MB (less than 100.00% of JavaScript submissions)
+var countMatches2 = function (items, ruleKey, ruleValue) {
   var index;
   var count = 0;
   if (ruleKey === "type") index = 0;
