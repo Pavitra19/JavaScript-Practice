@@ -13,6 +13,13 @@ var isPalindrome = function (s) {
 // initialize pointers outwards and check inwardss
 // Runtime: 92 ms,Memory Usage: 40.8 MB
 var isPalindrome2 = function (s) {
+  // Replacing s to save memory by utilizing the original memory.
+  // // slashes here designate the pattern to match.
+  // [] square bracket designate the group of characters defined so that the string knows what to look for
+  // ~ tilde symbol means that to capture everything that is not in this group that will follow the tilde and the group
+  // uppercase letters from A to Z, lowercase letters from A to Z, and the numbers zero to nine.
+  // So it captures everything that is not alphanumeric characters, regardless of case sensitivity.
+  //  /g is a replace call to replace all matches, not just the first one.
   s = s.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
 
   // initialize left/right pointers at start and end of string
