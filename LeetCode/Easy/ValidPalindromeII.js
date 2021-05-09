@@ -11,7 +11,7 @@
 // Runtime: 92 ms, faster than 90.08% of JavaScript online submissions for Valid Palindrome II.
 // Memory Usage: 45.8 MB, less than 83.52 % of JavaScript online submissions for Valid Palindrome II.
 var validPalindrome = function (s) {
-  if (s.length <= 2) return true;
+  if (s.length <= 2) return true; // length of 2 characters or less will always be an almost palindrome
   let count = 0;
 
   const checkPalindrome = (word) => {
@@ -19,9 +19,12 @@ var validPalindrome = function (s) {
       if (word[i] !== word[j]) {
         count++;
         if (count > 1) {
-          return false;
+          return false; // if count exceeds 1, not an almost palindrome
         }
 
+        // If there is conflict of two characters that don't match,  generate both strings and
+        //  validate if either of those are palindromes and then from there return, true or false, depending
+        // on if either is a palindrome or neither is a palindrome.
         return (
           checkPalindrome(word.slice(0, i) + word.slice(i + 1)) ||
           checkPalindrome(word.slice(0, j) + word.slice(j + 1))
@@ -33,3 +36,11 @@ var validPalindrome = function (s) {
 
   return checkPalindrome(s);
 };
+
+// Test cases
+// "raceacar" = true
+// "abccdba" = true
+// "abcdefdba" = false
+// "ab" = true
+// "a" = true
+// "" = true
