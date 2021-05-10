@@ -15,8 +15,8 @@ var countSubstrings = function (s) {
   let count = 0;
 
   for (let i = 0; i < s.length; i++) {
-    checkPalidrome(i, i);
-    checkPalidrome(i, i + 1);
+    checkPalidrome(i, i); // odd length palindromes
+    checkPalidrome(i, i + 1); // even length palindromes
   }
 
   return count;

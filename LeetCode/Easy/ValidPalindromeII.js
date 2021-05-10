@@ -37,6 +37,32 @@ var validPalindrome = function (s) {
   return checkPalindrome(s);
 };
 
+// Runtime: 96 ms, faster than 79.64% of JavaScript online submissions for Valid Palindrome II.
+// Memory Usage: 45.8 MB, less than 83.52% of JavaScript online submissions for Valid Palindrome II.
+var validPalindrome2 = function (s) {
+  if (s.length <= 2) return true;
+  let count = 0;
+
+  const checkPalindrome = (word) => {
+    for (let i = 0, j = word.length - 1; i < j; i++, j--) {
+      if (word[i] !== word[j]) {
+        count++;
+        if (count > 1) {
+          return false;
+        }
+
+        return (
+          // check the remaining letters since the other letters are already palindromes
+          checkPalindrome(word.slice(i, j)) ||
+          checkPalindrome(word.slice(i + 1, j + 1))
+        );
+      }
+    }
+    return true;
+  };
+
+  return checkPalindrome(s);
+};
 // Test cases
 // "raceacar" = true
 // "abccdba" = true
