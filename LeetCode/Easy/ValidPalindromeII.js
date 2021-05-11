@@ -8,9 +8,41 @@
 
 // Consider a palindrome as an almost palindrome, return true
 
+// Runtime: 96 ms, faster than 79.48% of JavaScript online submissions for Valid Palindrome II.
+// Memory Usage: 45.9 MB, less than 65.37% of JavaScript online submissions for Valid Palindrome II.
+// Time complexity: O(n), space complexity: O(1)
+var checkPalindrome = function (s, left, right) {
+  while (left < right) {
+    if (s[left] !== s[right]) {
+      return false;
+    }
+    left++;
+    right--;
+  }
+
+  return true;
+};
+
+var validPalindrome = function (s) {
+  let left = 0,
+    right = s.length - 1;
+
+  while (left < right) {
+    if (s[left] !== s[right]) {
+      return (
+        checkPalindrome(s, left + 1, right) ||
+        checkPalindrome(s, left, right - 1)
+      );
+    }
+    left++;
+    right--;
+  }
+  return true;
+};
+
 // Runtime: 92 ms, faster than 90.08% of JavaScript online submissions for Valid Palindrome II.
 // Memory Usage: 45.8 MB, less than 83.52 % of JavaScript online submissions for Valid Palindrome II.
-var validPalindrome = function (s) {
+var validPalindrome2 = function (s) {
   if (s.length <= 2) return true; // length of 2 characters or less will always be an almost palindrome
   let count = 0;
 
@@ -39,7 +71,7 @@ var validPalindrome = function (s) {
 
 // Runtime: 96 ms, faster than 79.64% of JavaScript online submissions for Valid Palindrome II.
 // Memory Usage: 45.8 MB, less than 83.52% of JavaScript online submissions for Valid Palindrome II.
-var validPalindrome2 = function (s) {
+var validPalindrome3 = function (s) {
   if (s.length <= 2) return true;
   let count = 0;
 
