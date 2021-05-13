@@ -6,15 +6,15 @@
  * Leetcode 409
  */
 
-// Runtime: 80 ms, faster than 87.93% of JavaScript online submissions for Longest Palindrome.
-// Memory Usage: 39.8 MB, less than 70.11% of JavaScript online submissions for Longest Palindrome.
+// Runtime: 80 ms, faster than 88.07% of JavaScript online submissions for Longest Palindrome.
+// Memory Usage: 39.7 MB, less than 79.55% of JavaScript online submissions for Longest Palindrome.
 // O(n) time complexity, O(n) space complexity
 var longestPalindrome = function (s) {
   let nums = {};
   let total = 0;
 
   for (let i = 0; i < s.length; i++) {
-    if (!nums.hasOwnProperty(s[i])) {
+    if (!nums[s[i]]) {
       nums[s[i]] = 1; // initialize count if not already in object
     } else nums[s[i]]++; // increment count of letter
   }

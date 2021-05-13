@@ -11,6 +11,9 @@
 
 // Runtime: 116 ms, faster than 56.92% of JavaScript online submissions for Construct K Palindrome Strings.
 // Memory Usage: 43.3 MB, less than 33.08% of JavaScript online submissions for Construct K Palindrome Strings.
+// Each palindrome will have at most 1 char with an odd # of occurances. To have k palindromes, 1 * k = k, k odd occumrances are allowed
+// Thus, oddCount can't be > k
+// Non-empty palindromes means each palindrome must have at least one char; so impossible to constuct k palindromes if k > s.length
 var canConstruct = function (s, k) {
   if (s.length < k) return false;
 
